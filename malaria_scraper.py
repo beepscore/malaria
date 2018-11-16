@@ -62,17 +62,18 @@ def get_table_html(country_name_first_letter):
         browser.quit()
 
 
-if __name__ == '__main__':
+def get_tables_write_files():
 
-    text = get_table_html('b')
-    print(text)
-    # write to file
-
-    # for letter in string.ascii_lowercase:
-    for letter in ['b']:
+    for letter in string.ascii_lowercase:
         text = get_table_html(letter)
         out_filename = './data/' + letter + '.html'
 
         with open(out_filename, 'w') as out_file:
             out_file.write(text)
+
+
+if __name__ == '__main__':
+
+    get_tables_write_files()
+
 
