@@ -74,6 +74,7 @@ def get_tables_write_files():
 
 if __name__ == '__main__':
 
-    get_tables_write_files()
+    # get_tables_write_files()
+    pass
 
 
