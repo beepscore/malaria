@@ -27,6 +27,13 @@ def url_malaria(country_name_first_letter):
     return url_string
 
 
+def malaria_filename(country_name_first_letter):
+    """
+    return filename
+    """
+    return './data/' + country_name_first_letter + '.html'
+
+
 def get_table_html(country_name_first_letter):
     """
     Uses browser to request info.
@@ -47,7 +54,7 @@ def get_table_html(country_name_first_letter):
         # http://stackoverflow.com/questions/5868439/wait-for-page-load-in-selenium
         WebDriverWait(browser, 6).until(lambda d: d.find_element_by_tag_name(table_tag).is_displayed())
         element = browser.find_element_by_tag_name(table_tag)
-        return element.get_attribute('innerHTML')
+        return element.get_attribute('outerHTML')
 
     except TimeoutException:
         print("TimeoutException, returning empty string")
@@ -66,15 +73,34 @@ def get_tables_write_files():
 
     for letter in string.ascii_lowercase:
         text = get_table_html(letter)
-        out_filename = './data/' + letter + '.html'
+        out_filename = malaria_filename(letter)
 
         with open(out_filename, 'w') as out_file:
             out_file.write(text)
 
 
+def get_dataframe(country_name_first_letter):
+
+    # read from local data file
+    filename = malaria_filename(country_name_first_letter)
+    df = pd.read_html(filename)[0]
+    # print(df.head())
+    """
+    e.g. country_name_first_letter b
+                                                 Country                       Areas with Malaria Estimated relative risk of Malaria for US Travelers2(https://www.cdc.gov/malaria/travelers/country_table/b.html#two) Drug Resistance3(https://www.cdc.gov/malaria/travelers/country_table/b.html#three) Malaria Species4(https://www.cdc.gov/malaria/travelers/country_table/b.html#four) Recommended Chemoprophylaxis5(https://www.cdc.gov/malaria/travelers/country_table/b.html#five) Key Information Needed and Helpful Links to Assess Need for Prophylaxis for Select Countries
+    0                                       Bahamas, The                                     None                                               None                                                                                                       Not Applicable                                                                     Not Applicable                                                                    Not Applicable                                                                                            NaN                                          
+    1                                            Bahrain                                     None                                               None                                                                                                       Not Applicable                                                                     Not Applicable                                                                    Not Applicable                                                                                            NaN                                          
+    2  Bangladesh(https://www.cdc.gov/malaria/images/...  All areas, except in the city of Dhaka.                                                Low                                                                                                          Chloroquine                                  P.falciparum 90%, P. vivax 10%, and P. malaria...                                 Atovaquone-proguanil, doxycycline, or mefloquine.                                                                                            NaN                                          
+    3                                           Barbados                                     None                                               None                                                                                                       Not Applicable                                                                     Not Applicable                                                                    Not Applicable                                                                                            NaN                                          
+    4                                            Belarus                                     None                                               None                                                                                                       Not Applicable                                                                     Not Applicable                                                                    Not Applicable                                                                                            NaN                                          
+    """
+    return df
+
+
 if __name__ == '__main__':
 
     # get_tables_write_files()
-    pass
+
+    df = get_dataframe('b')
 
 
