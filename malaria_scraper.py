@@ -79,6 +79,19 @@ def get_tables_write_files():
             out_file.write(text)
 
 
+def trim_country(df):
+    """
+    :param df: country name, possibly followed by () and/or ;
+    :return: mutated dataframe by trimming country name
+    """
+    # delete ( and following, escape (
+    df['country'] = df['country'].str.replace(r'\(.*', '')
+    # delete ; and following
+    df['country'] = df['country'].str.replace(r';.*', '')
+    df['country'] = df['country'].str.strip()
+    return df
+
+
 def get_dataframe(country_name_first_letter):
 
     # read from local data file
@@ -87,6 +100,8 @@ def get_dataframe(country_name_first_letter):
 
     df.columns = ['country', 'areas_with_malaria', 'estimated_risk', 'drug_resistance', 'malaria_species', 'rec_prophylaxis', 'info']
     df = df.drop(columns=['drug_resistance', 'malaria_species', 'rec_prophylaxis', 'info'])
+
+    trim_country(df)
 
     return df
 
