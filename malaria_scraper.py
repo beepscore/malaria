@@ -17,7 +17,7 @@ https://github.com/beepscore/websearcher
 """
 
 
-def url_malaria(country_name_first_letter):
+def malaria_url(country_name_first_letter):
     """
     return url
     """
@@ -44,7 +44,7 @@ def get_table_html(country_name_first_letter):
     # browser = webdriver.Firefox()
     browser = webdriver.Chrome()
 
-    url = url_malaria(country_name_first_letter)
+    url = malaria_url(country_name_first_letter)
     browser.get(url)
 
     table_tag = 'table'
