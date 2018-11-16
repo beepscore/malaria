@@ -69,5 +69,10 @@ if __name__ == '__main__':
     # write to file
 
     # for letter in string.ascii_lowercase:
-    #     get_text(letter)
+    for letter in ['b']:
+        text = get_table_html(letter)
+        out_filename = './data/' + letter + '.html'
+
+        with open(out_filename, 'w') as out_file:
+            out_file.write(text)
 
