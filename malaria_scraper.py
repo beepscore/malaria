@@ -86,8 +86,13 @@ def trim_country(df):
     """
     # delete ( and following, escape (
     df['country'] = df['country'].str.replace(r'\(.*', '')
+
     # delete ; and following
     df['country'] = df['country'].str.replace(r';.*', '')
+
+    # delete , and following. For example change Bahamas, The to Bahamas
+    df['country'] = df['country'].str.replace(r',.*', '')
+    
     df['country'] = df['country'].str.strip()
     return df
 
@@ -113,5 +118,6 @@ if __name__ == '__main__':
     # get_tables_write_files()
 
     df = get_dataframe('b')
+    print(df.head())
 
 
