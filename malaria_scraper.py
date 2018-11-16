@@ -103,6 +103,8 @@ def get_dataframe(country_name_first_letter):
 
     trim_country(df)
 
+    df['estimated_risk'] = df['estimated_risk'].astype('category')
+
     return df
 
 
