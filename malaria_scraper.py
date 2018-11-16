@@ -81,7 +81,7 @@ def get_tables_write_files():
 
 def trim_country(df):
     """
-    :param df: country name, possibly followed by () and/or ;
+    :param df: dataframe with column 'country' containing country name, possibly followed by () and/or ;
     :return: mutated dataframe by trimming country name
     """
     # delete ( and following, escape (
