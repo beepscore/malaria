@@ -97,6 +97,21 @@ def trim_country(df):
     return df
 
 
+def categorize_estimated_risk(df):
+    """
+    :param df: dataframe with column 'estimated_risk' containing risk, possibly followed by digit for footnote
+    :return: mutated dataframe by trimming estimated_risk and converting from string to category
+    """
+    # delete digit and following. For example in Afghanistan change Moderate2 to Moderate
+    df['estimated_risk'] = df['estimated_risk'].str.replace(r'\d.*', '')
+
+    df['estimated_risk'] = df['estimated_risk'].str.strip()
+
+    df['estimated_risk'] = df['estimated_risk'].astype('category')
+
+    return df
+
+
 def get_dataframe(country_name_first_letter):
 
     # read from local data file
@@ -114,7 +129,7 @@ def get_dataframe(country_name_first_letter):
 
     trim_country(df)
 
-    df['estimated_risk'] = df['estimated_risk'].astype('category')
+    categorize_estimated_risk(df)
 
     return df
 
