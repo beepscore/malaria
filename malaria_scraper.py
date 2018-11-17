@@ -100,12 +100,16 @@ def trim_country(df):
 def categorize_estimated_risk(df):
     """
     :param df: dataframe with column 'estimated_risk' containing risk, possibly followed by digit for footnote
+               original data may contain string 'None', different from python object None
     :return: mutated dataframe by trimming estimated_risk and converting from string to category
     """
     # delete digit and following. For example in Afghanistan change Moderate2 to Moderate
     df['estimated_risk'] = df['estimated_risk'].str.replace(r'\d.*', '')
 
     df['estimated_risk'] = df['estimated_risk'].str.strip()
+
+    # make case consistent e.g. original data may contain 'Very Low' and 'Very low'
+    df['estimated_risk'] = df['estimated_risk'].str.lower()
 
     df['estimated_risk'] = df['estimated_risk'].astype('category')
 
