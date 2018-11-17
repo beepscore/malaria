@@ -1,0 +1,178 @@
+,country,iso_a3
+0,Afghanistan,AFG
+1,Angola,AGO
+2,Albania,ALB
+3,United Arab Emirates,ARE
+4,Argentina,ARG
+5,Armenia,ARM
+6,Antarctica,ATA
+7,Fr. S. Antarctic Lands,ATF
+8,Australia,AUS
+9,Austria,AUT
+10,Azerbaijan,AZE
+11,Burundi,BDI
+12,Belgium,BEL
+13,Benin,BEN
+14,Burkina Faso,BFA
+15,Bangladesh,BGD
+16,Bulgaria,BGR
+17,Bahamas,BHS
+18,Bosnia and Herz.,BIH
+19,Belarus,BLR
+20,Belize,BLZ
+21,Bolivia,BOL
+22,Brazil,BRA
+23,Brunei,BRN
+24,Bhutan,BTN
+25,Botswana,BWA
+26,Central African Rep.,CAF
+27,Canada,CAN
+28,Switzerland,CHE
+29,Chile,CHL
+30,China,CHN
+31,Côte d'Ivoire,CIV
+32,Cameroon,CMR
+33,Dem. Rep. Congo,COD
+34,Congo,COG
+35,Colombia,COL
+36,Costa Rica,CRI
+37,Cuba,CUB
+38,N. Cyprus,-99
+39,Cyprus,CYP
+40,Czech Rep.,CZE
+41,Germany,DEU
+42,Djibouti,DJI
+43,Denmark,DNK
+44,Dominican Rep.,DOM
+45,Algeria,DZA
+46,Ecuador,ECU
+47,Egypt,EGY
+48,Eritrea,ERI
+49,Spain,ESP
+50,Estonia,EST
+51,Ethiopia,ETH
+52,Finland,FIN
+53,Fiji,FJI
+54,Falkland Is.,FLK
+55,France,FRA
+56,Gabon,GAB
+57,United Kingdom,GBR
+58,Georgia,GEO
+59,Ghana,GHA
+60,Guinea,GIN
+61,Gambia,GMB
+62,Guinea-Bissau,GNB
+63,Eq. Guinea,GNQ
+64,Greece,GRC
+65,Greenland,GRL
+66,Guatemala,GTM
+67,Guyana,GUY
+68,Honduras,HND
+69,Croatia,HRV
+70,Haiti,HTI
+71,Hungary,HUN
+72,Indonesia,IDN
+73,India,IND
+74,Ireland,IRL
+75,Iran,IRN
+76,Iraq,IRQ
+77,Iceland,ISL
+78,Israel,ISR
+79,Italy,ITA
+80,Jamaica,JAM
+81,Jordan,JOR
+82,Japan,JPN
+83,Kazakhstan,KAZ
+84,Kenya,KEN
+85,Kyrgyzstan,KGZ
+86,Cambodia,KHM
+87,Korea,KOR
+88,Kosovo,-99
+89,Kuwait,KWT
+90,Lao PDR,LAO
+91,Lebanon,LBN
+92,Liberia,LBR
+93,Libya,LBY
+94,Sri Lanka,LKA
+95,Lesotho,LSO
+96,Lithuania,LTU
+97,Luxembourg,LUX
+98,Latvia,LVA
+99,Morocco,MAR
+100,Moldova,MDA
+101,Madagascar,MDG
+102,Mexico,MEX
+103,Macedonia,MKD
+104,Mali,MLI
+105,Myanmar,MMR
+106,Montenegro,MNE
+107,Mongolia,MNG
+108,Mozambique,MOZ
+109,Mauritania,MRT
+110,Malawi,MWI
+111,Malaysia,MYS
+112,Namibia,NAM
+113,New Caledonia,NCL
+114,Niger,NER
+115,Nigeria,NGA
+116,Nicaragua,NIC
+117,Netherlands,NLD
+118,Norway,NOR
+119,Nepal,NPL
+120,New Zealand,NZL
+121,Oman,OMN
+122,Pakistan,PAK
+123,Panama,PAN
+124,Peru,PER
+125,Philippines,PHL
+126,Papua New Guinea,PNG
+127,Poland,POL
+128,Puerto Rico,PRI
+129,Dem. Rep. Korea,PRK
+130,Portugal,PRT
+131,Paraguay,PRY
+132,Palestine,PSE
+133,Qatar,QAT
+134,Romania,ROU
+135,Russia,RUS
+136,Rwanda,RWA
+137,W. Sahara,ESH
+138,Saudi Arabia,SAU
+139,Sudan,SDN
+140,S. Sudan,SSD
+141,Senegal,SEN
+142,Solomon Is.,SLB
+143,Sierra Leone,SLE
+144,El Salvador,SLV
+145,Somaliland,-99
+146,Somalia,SOM
+147,Serbia,SRB
+148,Suriname,SUR
+149,Slovakia,SVK
+150,Slovenia,SVN
+151,Sweden,SWE
+152,Swaziland,SWZ
+153,Syria,SYR
+154,Chad,TCD
+155,Togo,TGO
+156,Thailand,THA
+157,Tajikistan,TJK
+158,Turkmenistan,TKM
+159,Timor-Leste,TLS
+160,Trinidad and Tobago,TTO
+161,Tunisia,TUN
+162,Turkey,TUR
+163,Taiwan,TWN
+164,Tanzania,TZA
+165,Uganda,UGA
+166,Ukraine,UKR
+167,Uruguay,URY
+168,United States,USA
+169,Uzbekistan,UZB
+170,Venezuela,VEN
+171,Vietnam,VNM
+172,Vanuatu,VUT
+173,Yemen,YEM
+174,South Africa,ZAF
+175,Zambia,ZMB
+176,Zimbabwe,ZWE
