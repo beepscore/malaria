@@ -151,6 +151,7 @@ def get_dataframe_all_countries():
 
 if __name__ == '__main__':
 
+    # only need to write files once
     # get_tables_write_files()
 
     df = get_dataframe_all_countries()
