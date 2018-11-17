@@ -33,13 +33,13 @@ def write_iso_a3(df_map):
     save iso_a3 and country to file.
     """
     df_iso_a3 = df_map.iloc[:, 2:4]
-    df_iso_a3.to_csv('./data/df_iso_a3.csv')
+    df_iso_a3.to_csv('./data/iso_a3.csv')
  
 
 if __name__ == '__main__':
 
+    df_map = get_map_df()
+
     # only need to write file once
-    # df_map = get_map_df()
     # write_iso_a3(df_map)
 
-    pass
