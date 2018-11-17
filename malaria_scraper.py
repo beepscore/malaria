@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import string
-from io import StringIO
+import os
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
@@ -92,7 +92,7 @@ def trim_country(df):
 
     # delete , and following. For example change Bahamas, The to Bahamas
     df['country'] = df['country'].str.replace(r',.*', '')
-    
+
     df['country'] = df['country'].str.strip()
     return df
 
@@ -101,6 +101,12 @@ def get_dataframe(country_name_first_letter):
 
     # read from local data file
     filename = malaria_filename(country_name_first_letter)
+
+    if os.path.getsize(filename) == 0:
+        # file is empty
+        # avoid ValueError: No text parsed from document: ./data/x.html
+        return pd.DataFrame()
+
     df = pd.read_html(filename)[0]
 
     df.columns = ['country', 'areas_with_malaria', 'estimated_risk', 'drug_resistance', 'malaria_species', 'rec_prophylaxis', 'info']
@@ -113,11 +119,22 @@ def get_dataframe(country_name_first_letter):
     return df
 
 
+def get_dataframe_all_countries():
+
+    df_all_letters = pd.DataFrame()
+
+    for letter in string.ascii_lowercase:
+        df_letter = get_dataframe(letter)
+        df_all_letters = df_all_letters.append(df_letter)
+
+    return df_all_letters
+
+
 if __name__ == '__main__':
 
     # get_tables_write_files()
 
-    df = get_dataframe('b')
-    print(df.head())
+    df = get_dataframe_all_countries()
+    print(df)
 
 
