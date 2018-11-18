@@ -138,6 +138,58 @@ def get_dataframe(country_name_first_letter):
     return df
 
 
+def df_by_merging_iso_a3(df):
+    """
+    :param df: dataframe with column 'country' containing country name
+    :return: mutated dataframe by merging df into df_iso_a3
+    """
+
+    # df_iso_a3 contains three letter country abbreviation
+    df_iso_a3 = pd.read_csv('./data/iso_a3.csv')
+    # print(len(df_iso_a3))
+    # 177
+
+    df = pd.merge(df, df_iso_a3, how='left')
+    df = df.sort_values('iso_a3')
+    # print(len(df))
+    # 241
+
+    # move country name to index
+    df = df.set_index('country')
+
+    # rename ivory coast
+    df = df.rename({'CÃ´te dâIvoire': "Côte d'Ivoire"})
+
+    # In column iso_a3 for rows missing value, add value.
+    # https://en.wikipedia.org/wiki/ISO_3166-1
+    # Fixed most countries with moderate or high risk.
+    # TODO: Consider fixing more missing values
+
+    df.loc['Andorra', 'iso_a3'] = 'AND'
+    df.loc['Bahrain', 'iso_a3'] = 'BHR'
+    df.loc['Burma', 'iso_a3'] = 'MMR'
+    df.loc['Cape Verde', 'iso_a3'] = 'CPV'
+    df.loc['Central African Republic', 'iso_a3'] = 'CAF'
+    df.loc["Côte d'Ivoire", 'iso_a3'] = 'CIV'
+
+    df.loc['Democratic Republic of the Congo', 'iso_a3'] = 'COD'
+    df.loc['Dominican Republic', 'iso_a3'] = 'DOM'
+    df.loc['Equatorial Guinea', 'iso_a3'] = 'GNQ'
+    df.loc['French Guiana', 'iso_a3'] = 'GUF'
+    df.loc['Laos', 'iso_a3'] = 'LAO'
+    df.loc['Solomon Islands', 'iso_a3'] = 'SLB'
+    df.loc['South Korea', 'iso_a3'] = 'ROK'
+    df.loc['South Sudan', 'iso_a3'] = 'SSD'
+
+    # virgin islands have 2 entries British VGB and United States VIR
+    # TODO: assign each row correctly
+    df.loc['Virgin Islands', 'iso_a3'] = 'VGB'
+
+    df.reset_index()
+
+    return df
+
+
 def get_dataframe_all_countries():
 
     df_all_letters = pd.DataFrame()
@@ -146,15 +198,23 @@ def get_dataframe_all_countries():
         df_letter = get_dataframe(letter)
         df_all_letters = df_all_letters.append(df_letter)
 
+    df_all_letters = df_by_merging_iso_a3(df_all_letters)
+
     return df_all_letters
 
 
 if __name__ == '__main__':
 
+    pd.set_option('display.max_columns', 6)
+    pd.set_option('display.max_rows', 200)
+
     # only need to write files once
     # get_tables_write_files()
 
     df = get_dataframe_all_countries()
+    # print(len(df))
+    # 241
+
     print(df)
 
 
