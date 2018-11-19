@@ -140,11 +140,13 @@ def get_dataframe(country_name_first_letter):
 
 def df_by_merging_iso_a3(df):
     """
+    Adds column with iso three letter country abbreviation.
+    For a given country, the name wording/spelling may vary
+    but the iso 3 abbreviation is consistent.
     :param df: dataframe with column 'country' containing country name
-    :return: mutated dataframe by merging df into df_iso_a3
+    :return: dataframe by merging df_iso_a3 into df
     """
 
-    # df_iso_a3 contains three letter country abbreviation
     df_iso_a3 = pd.read_csv('./data/iso_a3.csv')
     # print(len(df_iso_a3))
     # 177
